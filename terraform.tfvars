@@ -3,47 +3,47 @@
 #===============================================================================
 
 # vCenter IP or FQDN #
-vsphere_vcenter = ""
+vsphere_vcenter = "192.168.2.222"
 
 # vSphere username used to deploy the infrastructure #
-vsphere_user = ""
+vsphere_user = "administrator@vsphere.local"
 
 # Skip the verification of the vCenter SSL certificate (true/false) #
 vsphere_unverified_ssl = "true"
 
 # vSphere datacenter name where the infrastructure will be deployed #
-vsphere_datacenter = ""
+vsphere_datacenter = "Datacenter"
 
 # vSphere cluster name where the infrastructure will be deployed #
-vsphere_cluster = ""
+vsphere_cluster = "192.168.2.155"
 
 #===============================================================================
 # Virtual machine parameters
 #===============================================================================
 
 # The name of the virtual machine #
-vm_name = ""
+vm_name = "centos-standalone"
 
 # The datastore name used to store the files of the virtual machine #
-vm_datastore = ""
+vm_datastore = "HDD"
 
 # The vSphere network name used by the virtual machine #
-vm_network = ""
+vm_network = "K8s Network"
 
 # The netmask used to configure the network card of the virtual machine (example: 24) #
-vm_netmask = ""
+vm_netmask = "24"
 
 # The network gateway used by the virtual machine #
-vm_gateway = ""
+vm_gateway = "192.168.2.1"
 
 # The DNS server used by the virtual machine #
-vm_dns = ""
+vm_dns = "223.5.5.5"
 
 # The domain name used by the virtual machine #
-vm_domain = ""
+vm_domain = "hfcsbc.cn"
 
 # The vSphere template the virtual machine is based on #
-vm_template = ""
+vm_template = "centos-7-terraform-template"
 
 # Use linked clone (true/false)
 vm_linked_clone = "false"
@@ -55,4 +55,4 @@ vm_cpu = "1"
 vm_ram = "1024"
 
 # The IP address of the virtual machine #
-vm_ip = ""
+vm_ip = "192.168.2.31"

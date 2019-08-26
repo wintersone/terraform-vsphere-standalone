@@ -19,13 +19,21 @@ data "vsphere_datacenter" "dc" {
   name = "${var.vsphere_datacenter}"
 }
 
-data "vsphere_compute_cluster" "cluster" {
-  name          = "${var.vsphere_cluster}"
+#data "vsphere_compute_cluster" "cluster" {
+#  name          = "${var.vsphere_cluster}"
+#  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+#}
+data "vsphere_host" "host" {
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_datastore" "datastore" {
   name          = "${var.vm_datastore}"
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+}
+
+data "vsphere_resource_pool" "main" {
+  name          = "192.168.2.155/Resources/"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -45,7 +53,7 @@ data "vsphere_virtual_machine" "template" {
 
 resource "vsphere_virtual_machine" "standalone" {
   name             = "${var.vm_name}"
-  resource_pool_id = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
+  resource_pool_id = "${data.vsphere_resource_pool.main.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
 
   num_cpus = "${var.vm_cpu}"
